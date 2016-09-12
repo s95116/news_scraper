@@ -25,6 +25,18 @@ db.on('error', function(err){
   console.log('Mongoose Error ', err);
 });
 
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+app.use(express.static(process.cwd() + '/public')); 
+
+app.engine('handlebars', handlebars({
+  defaultLayout: 'main'
+}));
+
+app.set('view engine', 'handlebars');
+
 //If the log-in to mongoose succeeds, it logs a success message
 db.once('open', function() {
   console.log('Mongoose connection successful.');
