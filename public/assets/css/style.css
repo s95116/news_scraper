@@ -2,10 +2,8 @@ body {
     background-color: #F2F6D0
 }
 
-#wrapper {
-    width: 960px;
-    margin: 0 auto;
-    padding-top: 5%;
+#scrape-button{
+  align-content:center;
 }
 
 #articles {
