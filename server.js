@@ -6,6 +6,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var request = require('request');
 var cheerio = require('cheerio');
+var handlebars = require("express-handlebars");
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
@@ -39,7 +40,7 @@ var Article = require('./models/Article.js');
 
 //Get request & scrape the website
 app.get('/', function(req, res) {
-  res.send(index.html);
+  res.render('index');
 });
 
 app.get('/scrape', function(req, res) {
@@ -78,6 +79,7 @@ app.get('/scrape', function(req, res) {
 
     });
   });
+
 });
 
 //Retrieves the articles from the mongo database
